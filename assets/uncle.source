@@ -1,0 +1,46 @@
+import sys 
+import hashlib
+import subprocess
+import os
+
+os.system("clear")
+m = hashlib.md5()
+
+proc=subprocess.Popen('whoami', shell=True, stdout=subprocess.PIPE, )
+output=proc.communicate()[0]
+player=output.rstrip()
+
+
+print("#######################################") 
+print("# I speak in code, but I know a flag. #") 
+print("# Can you make me say uncle?          #") 
+print("#######################################") 
+youWord = raw_input("If you say:") 
+alpha = list("abcdefghijklmnopqrstuvwxyz") 
+encoded=[] 
+print "" 
+print "Then I will say:", 
+
+for i in range(len(youWord)):
+    origIndex = alpha.index(youWord[i])
+    if origIndex + i > 25:
+        newIndex = origIndex + i - 25
+    else:
+        newIndex = origIndex + i
+    sys.stdout.write(alpha[newIndex])
+    encoded.append(alpha[newIndex]) 
+print "" 
+print "____________________________________" 
+print "" 
+if encoded == ['u', 'n', 'c', 'l', 'e']:
+    flag=os.popen('echo -n $(whoami)uncle | md5sum').read()
+    print "YOU DID IT! Here's your flag: ", flag[:-3]
+
+
+#    command="echo $(whoami)uncle | md5sum"
+#    proc=subprocess.Popen(command, shell=True,stdout=subprocess.PIPE,)
+#    output=proc.communicate()[0]
+#    print(output.rstrip())
+else:
+    print("Sorry, I didn't say uncle.") 
+sys.stdout.flush()

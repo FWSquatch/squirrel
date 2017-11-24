@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import csv
+import sys
+import os
+
+try:
+  sys.argv[1]
+except:
+  print "You need to supply a flag."
+else:
+  userKey = sys.argv[1]
+  user = os.popen("whoami").read()
+  numChallenges = os.popen("ls -l /etc/squirrel/challenges | grep -c ^d").read()
+  csv_file = csv.reader(open('/etc/squirrel/scoring/keys.csv', "rb"), delimiter=",")
+
+  for row in csv_file:
+    for i in range(0,int(numChallenges)+1):
+  #    print row[i]
+      if userKey.rstrip() == row[i]:
+        if user.rstrip() == row[0]:
+          command = "/etc/squirrel/assets/challenge"+str(i)+".sh"
+          print "Flag accepted!"
+          os.system(command)
+          exit()
+      else:
+        pass
+  print "Sorry, that flag is not what we're looking for."

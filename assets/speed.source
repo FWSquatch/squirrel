@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import time
+import random
+import glob
+import os
+
+def genKeyword():
+  seedKey = ""
+  for j in range (8):
+    i = random.randint(0,61)
+    seedKey = seedKey+seed[i]
+  return seedKey
+
+
+seed = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+numFiles = random.randint(25,40)
+keyword = genKeyword()
+
+print "Speed is the key to this challenge. Some might say this task is too"
+print "much for a normal person to complete. Luckily, you have some programming"
+print "chops that will make this task a breeze, right? Once you push enter,"
+print "you will be given a string of characters. You will have 15 seconds"
+print "to create exactly",numFiles,"files in the sandbox that begin with"
+print "that string.\n\n"
+raw_input("Are you ready? Press Enter to begin")
+initialTime=int(time.time())
+print "Your string is:",keyword
+searchstring=keyword+"*"
+counter = len(glob.glob1("sandbox/",searchstring))
+print "Initial count:",counter
+time.sleep(15)
+counter = len(glob.glob1("sandbox/",searchstring))
+print "Final count:",counter
+
+if counter == numFiles:
+  print "You got it!"
+  flag=os.popen('echo -n $(whoami)filez | md5sum').read()
+  print "Here is your flag: ", flag[:-3]
+else:
+  print "Better luck next time. Hint: Try a second terminal."

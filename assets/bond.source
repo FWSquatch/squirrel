@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+flagseed="bond"
+import subprocess
+import os
+import time
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+os.system("clear")
+print "I must say, you are turning into quite the secret agent."
+print "I want you to meet a friend of mine..."
+time.sleep(2)
+os.system("clear")
+print "\n\n\n                    *CLICK*"
+time.sleep(2)
+print "You slowly turn around and are confronted with..."
+time.sleep(2)
+
+os.system("clear")
+
+
+print bcolors.WARNING+'\n\n .-""------------------------------------^--.'
+print " |      |    Bond 007             \\\\\\\\\\\\\\\\   \\/)"
+print " |------|______________/''\________\\\\\\\\\\\\\\\\__|/"
+print " |_______\             `-----------'    //__) \ "
+print "          ''''''''''\\  /'''\\ ('''\\ ''''..     / "
+print "                     ((     ))    )      ''. /"
+print "                      \\   //    / ..       | "
+print "                       ``=======(()::::..   L "
+print "                                  T `::::::  T"
+print "                                  L :::::::. L"
+print "                                  T `:::::::.T"
+print "                                   L :::::::::L"
+print "                                   T `::::::::T"
+print "                                    L :::::::::L"
+print "                                    T `::::::::T"
+print "                                    =========---"+bcolors.ENDC
+
+
+time.sleep(2)
+key = subprocess.check_output("whoami").rstrip()
+print "\nThe gun is attached the hand of a nice looking guy in a tux."
+time.sleep(2)
+print "\n\nMy name is Bond. James Bond. I'm a REAL secret agent."
+print "I hear you are in need of a catch phrase. Of course you"
+print "can't use mine. I think a more appropriate phrase would"
+print "be something like "+bcolors.OKGREEN+"'Pippity poppity, give me the zoppity."
+print "I'm "+key+".'"+bcolors.ENDC + "Go ahead and give it a try"
+
+key = "Pippity poppity, give me the zoppity. I'm "+key+"."
+
+print bcolors.OKBLUE+"\n\nWow! I guess Bond has killed all of his brain cells with"
+print "dry martinis. That catch phrase sucks! He is an expert,"
+myString = raw_input("though, so you swallow your pride."+bcolors.ENDC+"\nWhat do you say?")
+command1 = ""
+command2 = ""
+
+
+i =0
+while i < len(myString):
+  if i % 2 ==0:
+    command1+=myString[i]
+  else:
+    command2+=myString[i]
+  i = i + 1
+
+#print command1
+#print command2 
+print "\nYou're nervous. You open your mouth to speak and out comes...\n"
+time.sleep(1)
+print command1+command2
+challenge = command1+command2
+if challenge == key:
+  print "\nThat gave me chills. You are a cold blooded code breaker. Here's your flag:"
+  flag=os.popen('echo -n $(whoami)bond | md5sum').read()
+  print flag[:-3]
+#  flagcommand="echo bond$(whoami) | md5sum"
+#  proc=subprocess.Popen(flagcommand, shell=True,stdout=subprocess.PIPE,)
+#  output=proc.communicate()[0]
+#  k = (output.rstrip())
+#  k = k[:-3]
+#  print k
+else:
+  print "\nIS THERE SOMETHING WRONG WITH YOU!?!?! Why would you insult me in Turkish?!?!"
+  print "Get out before I decide to use my fancy ascii gun on you!"

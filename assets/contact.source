@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+import os
+import md5
+
+class bcolors:
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    ENDC = '\033[0m'
+
+print "It's time to meet your contact. You sit on a park bench and"
+print "wait patiently."
+print bcolors.OKGREEN + "      _|_|___________________|_|_" + bcolors.ENDC
+print bcolors.OKGREEN + "     |__:_____________________:__|" + bcolors.ENDC
+print bcolors.OKGREEN + "     |___________________________|" + bcolors.ENDC
+print bcolors.OKGREEN + "     |__:_____________________:__|" + bcolors.ENDC
+print bcolors.OKGREEN + "     |___________________________|" + bcolors.ENDC
+print bcolors.OKGREEN + "       |_|___________________|_|" + bcolors.ENDC
+print bcolors.OKGREEN + "      /__.___________________.__\\" + bcolors.ENDC
+print bcolors.OKGREEN + "     /__._____________________.__\\" + bcolors.ENDC
+print bcolors.OKGREEN + "    /_____________________________\\" + bcolors.ENDC
+print bcolors.OKGREEN + "       | |_|               |_| |" + bcolors.ENDC
+print bcolors.OKGREEN + "       | |                   | |" + bcolors.ENDC
+print bcolors.OKGREEN + "       | |                   | |" + bcolors.ENDC
+print bcolors.OKGREEN + "       |_|                   |_|" + bcolors.ENDC
+print 'A few minutes later an old man sits besid you and says, "I love'
+print 'these pistachios. They are my favorite snack. What is yours?"\n\n'
+print "You know this is your contact. He's waiting for your to give him"
+pw = raw_input("the password. What do you say?")
+if pw != "boogers":
+  print "After a few minutes, the old man gets up to leave."
+  print "Looks like you missed your chance."
+else:
+  flag=os.popen('echo -n $(whoami)bench | md5sum').read()
+  print bcolors.OKBLUE + "Here is your flag: ", flag[:-3] + bcolors.ENDC
+

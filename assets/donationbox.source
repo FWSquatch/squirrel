@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import subprocess
+
+proc=subprocess.Popen('ls donationbox', shell=True, stdout=subprocess.PIPE, )
+contents=proc.communicate()[0]
+newproc=subprocess.Popen('ls -1q donationbox | wc -l', shell=True, stdout=subprocess.PIPE, )
+numItems=newproc.communicate()[0]
+anothernewproc=subprocess.Popen(' printf $(whoami)donation | md5sum', shell=True, stdout=subprocess.PIPE, )
+flag=anothernewproc.communicate()[0]
+
+print "The BigBossMan looks in the box."
+print "Inside the box, he finds:"
+if (int(numItems) < 1):
+  print "NOTHING"
+else:
+  print contents
+
+if (int(numItems) >= 5):
+  print "The BigBossMan is pleased"
+  print "Here is your flag:", flag[:-3]
+elif (int(numItems) >=3):
+  print "The BigBossMan is intrigued. Maybe you should sweeten the deal."
+elif (int(numItems) >=1):
+  print "The BigBossMan frowns. It's gonna take more than that."
+else:
+  print "The BigBossMan is not pleased."

@@ -25,4 +25,5 @@ for i in range (0,len(list_of_lists)):
       file.write('<td style="background-color:#cccccc;"><div align="center">'+list_of_lists[i][j]+'</div></td>')
   file.write("</tr>")
 file.write("</table>")
+file.write('The Squirrel server is a project of Eastern Oklahoma County Technology Center.<br>Please email questions or feedback to Josh Davis at <a href="mailto:jdavis@eoctech.edu?Subject=Squirrel%20Server" target="_top">jdavis@eoctech.edu</a>')
 file.write('</body></html>')

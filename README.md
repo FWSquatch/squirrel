@@ -13,7 +13,7 @@ Squirrel server is an exploration activity aimed at students interested in learn
 2. Clone into this repo (you might need to install git) `git clone https://github.com/FWSquatch/squirrel.git`
 3. Fill usernames.txt with student usernames (one per line).
 4. If you would like to use a different default password than "eoctech", then make appropriate change in the install.sh file.
-5. From the squirrel directory, perform the install by typing `sudo ./install.sh`
+5. From the squirrel directory, make the install file executable with `chmod +x install.sh` then perform the install by typing `sudo ./install.sh`
 
 ### Running the game:
 Once you've run the install script, everything should be automatic from there on out. Visiting the server in a browser will present a scoreboard and a quick rundown of the rules. Students will SSH into the server to complete the challenges. Bash scripts will set up the next challenge after the student claims a flag. Most of the challenges are written in python but a few use C++. I've compiled the python files to obsfucate the code a bit, but I've also included the source files in the assets directory. Some flags are static, but most of them are dynamically created by md5 hashing the username with a password located in the scoring/flag.cfg file. I plan on making that easier in later releases. 

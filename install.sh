@@ -8,6 +8,7 @@ echo "Creating /etc/squirrel..."
 mkdir /etc/squirrel
 cp -R challenges /etc/squirrel
 cp -R assets /etc/squirrel
+chmod +x /etc/squirrel/assets/*
 
 #Get userlist and create users
 echo "Setting up users..."

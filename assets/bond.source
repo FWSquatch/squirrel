@@ -52,10 +52,12 @@ time.sleep(2)
 print "\n\nMy name is Bond. James Bond. I'm a REAL secret agent."
 print "I hear you are in need of a catch phrase. Of course you"
 print "can't use mine. I think a more appropriate phrase would"
-print "be something like "+bcolors.OKGREEN+"'Pippity poppity, give me the zoppity."
-print "I'm "+key+".'"+bcolors.ENDC + "Go ahead and give it a try"
+#print "be something like "+bcolors.OKGREEN+"'Pippity poppity, give me the zoppity."
+print "be something like "+bcolors.OKGREEN+"'Ping Pong "+key+".'"+bcolors.ENDC 
+print "Go ahead and give it a try."
 
-key = "Pippity poppity, give me the zoppity. I'm "+key+"."
+#key = "Pippity poppity, give me the zoppity. I'm "+key+"."
+key = "Ping Pong "+key+"."
 
 print bcolors.OKBLUE+"\n\nWow! I guess Bond has killed all of his brain cells with"
 print "dry martinis. That catch phrase sucks! He is an expert,"

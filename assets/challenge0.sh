@@ -16,5 +16,6 @@ else
     echo "If you do it correctly, Challenge1 will appear in this directory."
   else
     echo -e "\n\nYour first challenge is to change your password."
+	echo -e "Once you've changed it, exit and log in with your new\npassword."
   fi
 fi

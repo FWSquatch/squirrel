@@ -61,6 +61,7 @@ if [ ! -d "/secretsquirrel/oaktree" ]; then
   echo "Copying special assets..."
   mkdir /secretsquirrel
   cp -R assets/oaktree /secretsquirrel/ 
+  chmod 755 /secretsquirrel/oaktree/TheMachine
 fi
 #Set up netcat listener via crontab
 if [[ $(crontab -l -u root | grep ncFire.sh) ]] ; then :; else
